@@ -1,0 +1,266 @@
+/* whichGit — terminal vintage / monitor corporativo retrofuturista */
+
+:root {
+  --color-bg: #120e0b;
+  --color-panel: #1a1410;
+  --color-border: #6b4b2a;
+  --color-text: #f3c58b;
+  --color-muted: #c08a57;
+  --color-accent: #ff9d4d;
+  --color-warning: #ffd166;
+  --color-error: #ff6b6b;
+  --color-ok: #8bd450;
+  --color-terminal-bg: #0d0a08;
+
+  --font-mono: ui-monospace, "Cascadia Code", "Consolas", "Liberation Mono", monospace;
+  --font-title-weight: 700;
+  --space-xs: 0.35rem;
+  --space-sm: 0.6rem;
+  --space-md: 1rem;
+  --space-lg: 1.35rem;
+  --radius: 2px;
+  --border-thin: 1px solid var(--color-border);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- App shell --- */
+
+.app {
+  min-height: 100%;
+  padding: var(--space-lg);
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.app-header {
+  border: var(--border-thin);
+  background: var(--color-panel);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: var(--font-title-weight);
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.app-subtitle {
+  margin: var(--space-xs) 0 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.app-loading,
+.app-error {
+  border: var(--border-thin);
+  background: var(--color-panel);
+  padding: var(--space-md);
+  color: var(--color-muted);
+}
+
+.app-error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* --- Panels --- */
+
+.panel {
+  border: var(--border-thin);
+  background: var(--color-panel);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.panel:last-child {
+  margin-bottom: 0;
+}
+
+.panel__title {
+  margin: 0 0 var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--border-thin);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+/* Definition list — estado do repositório */
+
+.kv-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) 1fr;
+  gap: var(--space-xs) var(--space-md);
+  align-items: baseline;
+}
+
+.kv-list dt {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.kv-list dd {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 400;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.kv-list dd.value--empty {
+  color: var(--color-muted);
+  font-style: italic;
+  opacity: 0.75;
+}
+
+/* --- Diagnóstico: status geral --- */
+
+.diagnostic-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--border-thin);
+}
+
+.diagnostic-header__label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: var(--border-thin);
+  background: var(--color-bg);
+}
+
+.status-badge--ok {
+  color: var(--color-ok);
+  border-color: var(--color-ok);
+}
+
+.status-badge--warning {
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.status-badge--error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Lista de diagnósticos */
+
+.diagnostic-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.diagnostic-item {
+  border: var(--border-thin);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+}
+
+.diagnostic-item--ok {
+  border-left: 3px solid var(--color-ok);
+}
+
+.diagnostic-item--warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+.diagnostic-item--error {
+  border-left: 3px solid var(--color-error);
+}
+
+.diagnostic-item__meta {
+  font-size: 0.68rem;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.diagnostic-item__meta code {
+  color: var(--color-accent);
+  font-size: inherit;
+}
+
+.diagnostic-item__message {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
+.diagnostic-item__action-label {
+  display: block;
+  margin: 0 0 var(--space-xs);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.terminal-block {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-terminal-bg);
+  border: var(--border-thin);
+  color: var(--color-ok);
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}

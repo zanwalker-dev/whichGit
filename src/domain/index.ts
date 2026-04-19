@@ -1,2 +1,5 @@
-// Camada de domínio (tipos e modelos) - base para T002.
-export {};
+export { parseGitOrigin } from "./parseGitOrigin";
+export {
+  parseGitSshOrigin,
+  type ParsedGitSshOrigin,
+} from "./parseGitSshOrigin";

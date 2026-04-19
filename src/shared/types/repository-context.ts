@@ -1,9 +1,9 @@
 /**
- * Contexto mínimo de um repositório para leitura de estado (campos preenchidos conforme T004+).
+ * Estado lido do repositório Git (caminho da raiz + remote e identidade local).
  */
 export interface RepositoryContext {
-  rootPath: string;
-  originUrl?: string | null;
-  gitUserName?: string | null;
-  gitUserEmail?: string | null;
+  repoPath: string;
+  originUrl: string | null;
+  gitUserName: string | null;
+  gitUserEmail: string | null;
 }

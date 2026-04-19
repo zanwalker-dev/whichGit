@@ -8,18 +8,18 @@
 
 ## Fase 2 — Leitura
 
-- [ ] T004 - Ler dados do repositório atual
-- [ ] T005 - Ler git config (user.name / email)
-- [ ] T006 - Parsear ~/.ssh/config
+- [x] T004 - Ler dados do repositório atual
+- [x] T005 - Ler git config (user.name / email)
+- [x] T006 - Extrair alias/owner/repo do origin SSH (SCP)
 
 ## Fase 3 — Diagnóstico
 
-- [ ] T007 - Detectar inconsistências
-- [ ] T008 - Criar modelo de diagnóstico
+- [x] T007 - Detectar inconsistências
+- [x] T008 - Criar modelo de diagnóstico
 
 ## Fase 4 — UI
 
-- [ ] T009 - Dashboard inicial
+- [x] T009 - Dashboard inicial
 - [ ] T010 - Exibir estado do repo
 
 ## Fase 5 — Escrita

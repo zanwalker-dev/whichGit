@@ -1,2 +1,6 @@
-// Camada de serviços (regras de negócio) - base para próximas tarefas.
-export {};
+export { buildRepositoryStateView } from "./buildRepositoryStateView";
+export { evaluateRepositoryDiagnostics } from "./evaluateRepositoryDiagnostics";
+export {
+  loadCurrentRepositoryContext,
+  type LoadRepositoryContextOutcome,
+} from "./repositoryContext";
