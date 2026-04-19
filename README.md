@@ -1,7 +1,26 @@
-# Tauri + React + Typescript
+# whichGit
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+Aplicação desktop para visualizar e trocar a identidade Git/SSH ativa em repositórios locais.
 
-## Recommended IDE Setup
+## Objetivo
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Evitar confusão entre contas pessoais e corporativas no GitHub, mostrando claramente:
+
+- qual email está sendo usado nos commits
+- qual chave SSH está autenticando
+- qual remote está configurado
+
+## Stack
+
+- Tauri 2
+- React + TypeScript + Vite
+
+## Status
+
+🚧 Em desenvolvimento (MVP)
+
+## Filosofia
+
+- Não existe “conta global ativa”
+- Identidade é por repositório
+- Toda alteração deve ser explícita e validada

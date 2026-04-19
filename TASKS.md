@@ -3,8 +3,8 @@
 ## Fase 1 — Foundation
 
 - [x] T001 - Organizar estrutura de pastas
-- [ ] T002 - Criar tipos de domínio
-- [ ] T003 - Implementar command runner seguro
+- [x] T002 - Criar tipos de domínio
+- [x] T003 - Implementar command runner seguro
 
 ## Fase 2 — Leitura
 
